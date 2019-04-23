@@ -6,38 +6,47 @@ public class SpawObject : MonoBehaviour
 {
     public static SpawObject InstanceSpawObjetc;
 
-    public float maxHeigth;  //Altura máxima
-    public float minHeigth; //Altura mínima
-    public float rateSpaw; //Tempo exato para instanciar um objeto na tela
-    public int escolherCano;   //1- Cano Azul, 2- Cano Verde, 3- Cano Roxo, 4- Todos os canos
-    public int escolherMoedas;// 1- Moedas Amarelas, 2- Moedas Azuis, 3- Moedas Roxas, 4- Todas as moedas 
-    private float currentRateSpaw;/*Esta variável é ativada quando for tratar do acumulo da contagem do o tempo para instanciar um determinado objeto na cena em tempo real de execução*/
+    public int escolherCano;   //1- Cano Azul, 2- Cano Verde, 3- Cano Roxo, 4- Todos os canos.
+    public int escolherMoedas;// 1- Moedas Amarelas, 2- Moedas Azuis, 3- Moedas Roxas, 4- Todas as moedas. 
+    public int quantidade_de_objetos; //quantidade de objetos a serem instanciados na cena.
 
-    public int quantidade_de_objetos; //quantidade de objetos a serem instanciados no jogo.
+    public float poseInicialHeroi;          //-9,5
+    public float tempoDanoHeroi;
+    public float alturaMaximaCano;         //Altura máxima
+    public float alturaMinimaCano;        // Altura mínima
+    public float velocidadeCanoVerde;
+    public float velocidadeCanoAzul;
+    public float velocidadeCanoRoxo;
+    public float tempoSpawCanos;     //  Tempo para instanciar um cano  na cena
+    public float tempoSpawMoedas;   //   Tempo para instaciar uma moeda na cena
+    public float minimaDistânciaMoedasX; //(6)
+    public float maximaDistânciaMoedasX;// (8,5)
+    public float distânciaMoedasY;  //(2.5f)
+    //variáveis acumuladoras de tempo para o Spaw de objetos na cena
+    private float RateSpawCanos;   
+    private float RateSpawMoedas;
 
-    public GameObject prefabCanoVerde;  //Objeto Cano verde
-    public GameObject prefabCanoAzul;   //Objeto Cano azul
-    public GameObject prefabCanoRoxo;   //Objeto Cano roxo
+    public bool ligarRandMoedas;
 
-    public GameObject prefabMoedaAmarela; //Objeto moeda
-    public GameObject prefabMoedaAzul; //Objeto moeda
-    public GameObject prefabMoedaRocha; //Objeto moeda
+    public GameObject prefabCanoVerde;  
+    public GameObject prefabCanoAzul;   
+    public GameObject prefabCanoRoxo;   
 
-    public List<GameObject> canosVerdes; //Lista para armazenar os canos verdes
-    public List<GameObject> canosAzuis;  //Lista para armazenar os canos azuis
-    public List<GameObject> canosRoxos;  //Lista para armazenar os canos roxos
+    public GameObject prefabMoedaAmarela; 
+    public GameObject prefabMoedaAzul; 
+    public GameObject prefabMoedaRocha; 
 
-    public List<GameObject> moedasAmarelas; //Lista para armazenar as moedas amarelas
-    public List<GameObject> moedasAzuis; //Lista para armazenar as moedas azuis 
-    public List<GameObject> moedasRoxas; //Lista para armazenar as moedas roxas
+    private List<GameObject> canosVerdes    = new List<GameObject>();
+    private List<GameObject> canosAzuis     = new List<GameObject>();
+    private List<GameObject> canosRoxos     = new List<GameObject>();
 
-   
-        
-   
+    private List<GameObject> moedasAmarelas = new List<GameObject>();
+    private List<GameObject> moedasAzuis    = new List<GameObject>();
+    private List<GameObject> moedasRoxas    = new List<GameObject>();
 
     void Start()
     {
-       InstanceSpawObjetc = this;
+        InstanceSpawObjetc = this;
 
         for (int i=0;  i < quantidade_de_objetos ; i++) //guardando os objetos na lista, a quantidade de canos é igual a quantidade de moedas
         {
@@ -73,27 +82,35 @@ public class SpawObject : MonoBehaviour
     
     void Update()
     {
+        Alle.InstanceAlle.setImunidadeTempo(tempoDanoHeroi); //tempo de dano do herói atualizado a cada FPS
         fasesMundo01();
     }
 
-    private void fasesMundo01() //instancia os objetos na tala
+    private void fasesMundo01( ) //instancia os objetos na tala
     {
-        currentRateSpaw += Time.deltaTime; //tempo para contagem para gerar os Objetos
-        if (GameControl.Instance.isGameOver)
+        RateSpawCanos += Time.deltaTime; //tempo para contagem para gerar os Objetos
+        if (GameControl.InstanceGameControl.isGameOver)
         {
-            GameControl.Instance.Die();
+            GameControl.InstanceGameControl.Die();
         }
         else
         {
-            if (currentRateSpaw > rateSpaw)
-            {
-                /*****************Trecho onde serão decididas as jogabilidades da fase*****************************/
-                float randPosition = Random.Range(minHeigth, maxHeigth); //Gera Posições aleatórias na tela do jogo
-                gerarCanos(randPosition);
-                gerarMoeda(randPosition);
-                /*************************************************************************************************/
+            float randCanoPosition = Random.Range(alturaMinimaCano, alturaMaximaCano); //Randonizando as posicoes aleatoria dos canos
 
-                currentRateSpaw = 0; //Zera o tempo para uma nova contagem
+            if (RateSpawCanos > tempoSpawCanos)
+            {  
+                gerarCanos(randCanoPosition);
+                if (ligarRandMoedas == false) //gera moedas aleatórias caso esteja desligada 
+                {
+                    gerarMoedaAleatorias(randCanoPosition);
+                }
+
+                if (ligarRandMoedas == true)
+                {
+                        float randMoedaPositionX = Random.Range(minimaDistânciaMoedasX, maximaDistânciaMoedasX);
+                        gerarMoedaAmarela(randMoedaPositionX, randCanoPosition );
+                }
+                RateSpawCanos = 0; //Zera o tempo para uma nova contagem
             }
         }
     }
@@ -148,7 +165,7 @@ public class SpawObject : MonoBehaviour
 
     }
 
-    private void gerarMoeda(float randPosition) 
+    private void gerarMoedaAmarela(float randMoedaPositionX, float randCanoPosition) 
     {
         GameObject tempMoeda = null;
 
@@ -190,7 +207,55 @@ public class SpawObject : MonoBehaviour
 
         if (tempMoeda != null)
         {
-            tempMoeda.transform.position = new Vector3(transform.position.x + 5, randPosition - 2.5f, transform.position.z); //Define a posição onde as moedas serão instanciadas
+            tempMoeda.transform.position = new Vector3(transform.position.x + randMoedaPositionX, randCanoPosition / 10, transform.position.z); //Define a posição onde as moedas serão instanciadas
+            tempMoeda.SetActive(true);
+        }
+
+    }
+
+    private void gerarMoedaAleatorias(float randPosition)
+    {
+        GameObject tempMoeda = null;
+
+        if (escolherMoedas == 1)//Moeda Amarela
+        {
+            for (int i = 0; i < quantidade_de_objetos; i++)
+            {
+                if (moedasAmarelas[i].activeSelf == false)
+                {
+                    tempMoeda = moedasAmarelas[i];
+                    break;
+                }
+            }
+        }
+
+        if (escolherMoedas == 2)//Moeda Azul
+        {
+            for (int i = 0; i < quantidade_de_objetos; i++)
+            {
+                if (moedasAzuis[i].activeSelf == false)
+                {
+                    tempMoeda = moedasAzuis[i];
+                    break;
+                }
+            }
+        }
+
+        if (escolherMoedas == 3)//Moeda Roxa
+        {
+            for (int i = 0; i < quantidade_de_objetos; i++)
+            {
+                if (moedasRoxas[i].activeSelf == false)
+                {
+                    tempMoeda = moedasRoxas[i];
+                    break;
+                }
+            }
+        }
+
+        if (tempMoeda != null)
+        {
+            tempMoeda.transform.position = new Vector3(transform.position.x + minimaDistânciaMoedasX, randPosition - distânciaMoedasY, transform.position.z); //Define a posição onde as moedas serão instanciadas
             tempMoeda.SetActive(true);
         }
 

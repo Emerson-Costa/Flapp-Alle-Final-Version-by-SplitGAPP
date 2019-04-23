@@ -6,9 +6,10 @@ using UnityEngine.UI; //Gerenciador de texto da UI Unity
 
 public class GameControl : MonoBehaviour
 {
-    public static GameControl Instance;
+    public static GameControl InstanceGameControl;
+
     private float instanceTime;
-    public float scrollSpeed = -1.5f;
+
     public bool isGameOver = false;
     private int score = 0;
     private int bonus = 0;
@@ -20,11 +21,11 @@ public class GameControl : MonoBehaviour
 
     void Awake() //acontece uma vez só
     {
-        if (Instance == null) //Instancia do controlador
+        if (InstanceGameControl == null) //Instancia do controlador
         {
-            Instance = this;
+            InstanceGameControl = this;
         }
-        else if( Instance != this)
+        else if( InstanceGameControl != this)
         {
             Destroy(gameObject);
         }

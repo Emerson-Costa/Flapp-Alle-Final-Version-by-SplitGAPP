@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    public static Score InstanciaScore;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Alle>() != null) //Se o objeto Alle não colidir com a pilastra outro método é chamado
         {
-            GameControl.Instance.scoreFunction(); //Chamou o metodo de pomtuação
+            GameControl.InstanceGameControl.scoreFunction(); //Chamou o metodo de pomtuação
         }      
     }
 }

@@ -10,16 +10,9 @@ public class Coracoes : MonoBehaviour
 
     public Sprite[] coracoes;
    
-    // Start is called before the first frame update
     void Start()
     { 
         cambioVida(3); //inicializa com o três coracoes 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void cambioVida(int pos)

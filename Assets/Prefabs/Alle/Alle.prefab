@@ -101,7 +101,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -135,13 +135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3a0d8a114ee204ab26713f7d79bb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapForce: 310
+  life: 3
+  poseInicial: -9.5
+  tapForce: 370
   fumaca: {fileID: 97045503805086781}
   defeito: {fileID: 6166085687241138023}
   nave: {fileID: 97045505226730489}
-  life: 3
-  imunidade_tempo: 1.73
-  poseInicial: -9.5
 --- !u!95 &2229730228754255714
 Animator:
   serializedVersion: 3

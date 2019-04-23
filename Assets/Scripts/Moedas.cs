@@ -4,27 +4,40 @@ using UnityEngine;
 
 public class Moedas : MonoBehaviour
 {
-    public float velocidade;
+    public static Moedas IntanceMoedas;
+
+    private float velocidade;
     private float tempo;
+
+
+    void Start()
+    {
+        IntanceMoedas = this;
+    }
+
+    public void Update()
+    {  
+        if (GameControl.InstanceGameControl.isGameOver)
+        {
+            GameControl.InstanceGameControl.Die();
+        }
+        else{
+            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Alle>() != null) //Se o objeto Alle não colidir com a pilastra outro método é chamado
         {
-           // GetComponent<Animator>().SetBool("pegouMoeda", true);
-            GameControl.Instance.bonusFunction(); //Chamou o metodo de pomtuação
+            GameControl.InstanceGameControl.bonusFunction(); //Chamou o metodo de pomtuação
             gameObject.SetActive(false);
         }
     }
 
-    public void Update()
-    {  
-        if (GameControl.Instance.isGameOver)
-        {
-            GameControl.Instance.Die();
-        }
-        else{
-            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
-        }
+    //Encapsulamento de classe
+    public void setVelocidade(float velocidade)
+    {
+        this.velocidade = velocidade;
     }
 }

@@ -13,12 +13,11 @@ public class MoveOffset : MonoBehaviour
         currentMaterial = GetComponent<Renderer>().material;
     }
 
-    
     void Update()
     {
         offset += 0.001f;
 
-        if (!GameControl.Instance.isGameOver)
+        if (!GameControl.InstanceGameControl.isGameOver)
         {
           currentMaterial.SetTextureOffset("_MainTex", new Vector2(offset * speed, 0));
         }
