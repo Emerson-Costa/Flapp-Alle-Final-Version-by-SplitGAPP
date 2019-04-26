@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6363213791300110658}
   - component: {fileID: 4328464804841767376}
   - component: {fileID: 2762266763018551853}
+  - component: {fileID: 8369717795593757057}
   m_Layer: 0
-  m_Name: canoVerde
-  m_TagString: canoVerde
+  m_Name: cano2
+  m_TagString: CanoVerde2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +35,7 @@ Transform:
   - {fileID: 4439891588695654219}
   - {fileID: 2840858978699409015}
   m_Father: {fileID: 2042883025981923419}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4328464804841767376
 SpriteRenderer:
@@ -110,6 +111,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6047243, y: 13.363607}
   m_EdgeRadius: 0
+--- !u!114 &8369717795593757057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396523263907243256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b4f581b819fb741b5373a0dd6e31e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &922193734425797669
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,8 +391,8 @@ Transform:
   m_LocalPosition: {x: 1.076927, y: 13.79276, z: 600}
   m_LocalScale: {x: 1.66594, y: 1.05, z: 1}
   m_Children:
-  - {fileID: 6363213791300110658}
   - {fileID: 6386069848047694048}
+  - {fileID: 6363213791300110658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -442,7 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8540626570d3ae14182c2be9f2187831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -3
+  cano1: {fileID: 6386069848047694048}
+  cano2: {fileID: 6363213791300110658}
 --- !u!114 &779697858809352827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,9 +480,10 @@ GameObject:
   - component: {fileID: 6386069848047694048}
   - component: {fileID: 8686735757770474475}
   - component: {fileID: 2029476638512657685}
+  - component: {fileID: 7025517513128197298}
   m_Layer: 0
-  m_Name: canoVerde (1)
-  m_TagString: canoVerde
+  m_Name: cano1
+  m_TagString: CanoVerde1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,7 +504,7 @@ Transform:
   - {fileID: 7959340857728256524}
   - {fileID: 8604289938685124134}
   m_Father: {fileID: 2042883025981923419}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.62799}
 --- !u!212 &8686735757770474475
 SpriteRenderer:
@@ -565,6 +580,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6047243, y: 13.363607}
   m_EdgeRadius: 0
+--- !u!114 &7025517513128197298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3795964502459341238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b4f581b819fb741b5373a0dd6e31e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4145101859435982623
 GameObject:
   m_ObjectHideFlags: 0

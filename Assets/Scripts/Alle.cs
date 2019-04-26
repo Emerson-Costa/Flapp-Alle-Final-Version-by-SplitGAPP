@@ -134,13 +134,14 @@ public class Alle : MonoBehaviour
     {
         Coracoes coracoes = GameObject.FindObjectOfType<Coracoes>(); //Instanciando o objeto corações
 
-        if (life > 0 && collision.gameObject.tag == "canoAzul"  ||  life > 0 && collision.gameObject.tag == "canoRocho" || 
+        if (life > 0 && collision.gameObject.tag == "canoAzul"  ||  life > 0 && collision.gameObject.tag == "CanoRoxo" || 
             life > 0 && collision.gameObject.tag == "canoVerde" ||  life > 0 && collision.gameObject.tag == "chao"         ){
 
             encostou = true;
             life--;
             coracoes.cambioVida(life);
         }
+
     }
 
     //encapsulamento

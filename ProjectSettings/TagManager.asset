@@ -15,6 +15,14 @@ TagManager:
   - teto
   - seguir
   - explodir
+  - CanoVerde1
+  - CanoVerde2
+  - CanoAzul1
+  - CanoAzul2
+  - CanoRoxo1
+  - CanoRoxo2
+  - CanoRoxo
+  - Destruir
   layers:
   - Default
   - TransparentFX

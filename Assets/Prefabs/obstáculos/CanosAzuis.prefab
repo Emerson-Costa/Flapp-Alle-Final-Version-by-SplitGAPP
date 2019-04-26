@@ -327,10 +327,10 @@ GameObject:
   - component: {fileID: 5868672757223034766}
   - component: {fileID: 4421915228018884366}
   - component: {fileID: 7273279696768869557}
-  - component: {fileID: 1591211572192399229}
+  - component: {fileID: 6787784245659750403}
   m_Layer: 0
-  m_Name: canoAzul (1)
-  m_TagString: canoAzul
+  m_Name: canoAzul2
+  m_TagString: CanoAzul2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,27 +431,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6335871, y: 13.232334}
   m_EdgeRadius: 0
---- !u!50 &1591211572192399229
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &6787784245659750403
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2561838237507678341}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b4f581b819fb741b5373a0dd6e31e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3642421863510246830
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8540626570d3ae14182c2be9f2187831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -3
+  cano1: {fileID: 9078857943340692954}
+  cano2: {fileID: 5868672757223034766}
 --- !u!114 &7865290728764716402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,10 +1116,10 @@ GameObject:
   - component: {fileID: 9078857943340692954}
   - component: {fileID: 5058998856692568349}
   - component: {fileID: 367820324439099198}
-  - component: {fileID: 928770189984994153}
+  - component: {fileID: 9056743170492034100}
   m_Layer: 0
-  m_Name: canoAzul (5)
-  m_TagString: canoAzul
+  m_Name: canoAzul1
+  m_TagString: CanoAzul1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1228,27 +1220,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6335871, y: 13.232334}
   m_EdgeRadius: 0
---- !u!50 &928770189984994153
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &9056743170492034100
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6512611271283336957}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b4f581b819fb741b5373a0dd6e31e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8061888654276959608
 GameObject:
   m_ObjectHideFlags: 0

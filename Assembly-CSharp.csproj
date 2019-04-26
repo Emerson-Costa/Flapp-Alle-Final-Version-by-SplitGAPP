@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Alle.cs" />
     <Compile Include="Assets\Scripts\Cano.cs" />
+    <Compile Include="Assets\Scripts\CanosInteriores.cs" />
     <Compile Include="Assets\Scripts\Coracoes.cs" />
     <Compile Include="Assets\Scripts\DestruirInstancias.cs" />
     <Compile Include="Assets\Scripts\GameControl.cs" />

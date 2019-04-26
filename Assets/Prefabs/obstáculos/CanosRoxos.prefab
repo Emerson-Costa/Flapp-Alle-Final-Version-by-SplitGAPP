@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6789588676123004325}
   m_Layer: 0
   m_Name: CanosRoxos
-  m_TagString: canoRocho
-  m_Icon: {fileID: 0}
+  m_TagString: CanoRoxo
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8540626570d3ae14182c2be9f2187831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -3
+  cano1: {fileID: 3748004495909063611}
+  cano2: {fileID: 7908466553593764499}
 --- !u!114 &6789588676123004325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,9 +199,10 @@ GameObject:
   - component: {fileID: 3748004495909063611}
   - component: {fileID: 1211132881903061448}
   - component: {fileID: 6429587249498604742}
+  - component: {fileID: 6969099200647438400}
   m_Layer: 0
-  m_Name: canoRoxo
-  m_TagString: canoRocho
+  m_Name: canoRoxo1
+  m_TagString: CanoRoxo1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +283,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.008031487, y: -5.5272174}
@@ -297,6 +299,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6290493, y: 13.244433}
   m_EdgeRadius: 0
+--- !u!114 &6969099200647438400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599032202036773627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b4f581b819fb741b5373a0dd6e31e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4329871476257490715
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,9 +322,10 @@ GameObject:
   - component: {fileID: 7908466553593764499}
   - component: {fileID: 8630675358216574014}
   - component: {fileID: 4268640563177952015}
+  - component: {fileID: 1116679895490253233}
   m_Layer: 0
-  m_Name: canoRoxo (1)
-  m_TagString: canoRocho
+  m_Name: canoRoxo2
+  m_TagString: CanoRoxo2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,7 +406,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.008031487, y: -5.5272174}
@@ -407,6 +422,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6290493, y: 13.244433}
   m_EdgeRadius: 0
+--- !u!114 &1116679895490253233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329871476257490715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b4f581b819fb741b5373a0dd6e31e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5650120811221623367
 GameObject:
   m_ObjectHideFlags: 0

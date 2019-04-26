@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cano : MonoBehaviour
 {
     public static Cano InstanceCano;
+
     private float velocidadeCanoAzul;
     private float velocidadeCanoVerde;
     private float velocidadeCanoRoxo;
@@ -40,13 +41,22 @@ public class Cano : MonoBehaviour
                 Moedas.IntanceMoedas.setVelocidade(SpawObject.InstanceSpawObjetc.velocidadeCanoRoxo);
             }
         }    
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Destruir")
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     //encapsulamento
-    public void setVelocidadeCanoAzul(float velocidade)
+    /*public void setVelocidadeCanoAzul(float velocidade)
     {
         this.velocidadeCanoAzul = velocidade;
-    }
+    }*/
 
     public void setVelocidadeCanoVerde(float velocidade)
     {

@@ -26,6 +26,7 @@ public class SpawObject : MonoBehaviour
     private float RateSpawCanos;   
     private float RateSpawMoedas;
 
+    public bool ligarRandCanos;
     public bool ligarRandMoedas;
 
     public GameObject prefabCanoVerde;  
@@ -97,7 +98,7 @@ public class SpawObject : MonoBehaviour
         {
             float randCanoPosition = Random.Range(alturaMinimaCano, alturaMaximaCano); //Randonizando as posicoes aleatoria dos canos
 
-            if (RateSpawCanos > tempoSpawCanos)
+            if (RateSpawCanos > tempoSpawCanos  && ligarRandCanos == true )
             {  
                 gerarCanos(randCanoPosition);
                 if (ligarRandMoedas == false) //gera moedas aleatórias caso esteja desligada 
