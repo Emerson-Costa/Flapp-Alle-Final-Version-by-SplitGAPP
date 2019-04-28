@@ -18,10 +18,12 @@ public class SpawObject : MonoBehaviour
     public float velocidadeCanoAzul;
     public float velocidadeCanoRoxo;
     public float tempoSpawCanos;     //  Tempo para instanciar um cano  na cena
+
+    public float velocidadeMoedas;
     public float tempoSpawMoedas;   //   Tempo para instaciar uma moeda na cena
-    public float minimaDistânciaMoedasX; //(6)
-    public float maximaDistânciaMoedasX;// (8,5)
-    public float distânciaMoedasY;  //(2.5f)
+    public float distanciaMoedasX; //
+    public float distanciaMoedasY;// 
+    
     //variáveis acumuladoras de tempo para o Spaw de objetos na cena
     private float RateSpawCanos;   
     private float RateSpawMoedas;
@@ -48,7 +50,6 @@ public class SpawObject : MonoBehaviour
     void Start()
     {
         InstanceSpawObjetc = this;
-
         for (int i=0;  i < quantidade_de_objetos ; i++) //guardando os objetos na lista, a quantidade de canos é igual a quantidade de moedas
         {
             //Instanciando todos os canos
@@ -101,16 +102,6 @@ public class SpawObject : MonoBehaviour
             if (RateSpawCanos > tempoSpawCanos  && ligarRandCanos == true )
             {  
                 gerarCanos(randCanoPosition);
-                if (ligarRandMoedas == false) //gera moedas aleatórias caso esteja desligada 
-                {
-                    gerarMoedaAleatorias(randCanoPosition);
-                }
-
-                if (ligarRandMoedas == true)
-                {
-                        float randMoedaPositionX = Random.Range(minimaDistânciaMoedasX, maximaDistânciaMoedasX);
-                        gerarMoedaAmarela(randMoedaPositionX, randCanoPosition );
-                }
                 RateSpawCanos = 0; //Zera o tempo para uma nova contagem
             }
         }
@@ -166,12 +157,13 @@ public class SpawObject : MonoBehaviour
 
     }
 
-    private void gerarMoedaAmarela(float randMoedaPositionX, float randCanoPosition) 
+    private void gerarMoedas(float posicaoX, float posicaoY) 
     {
         GameObject tempMoeda = null;
 
         if (escolherMoedas == 1)//Moeda Amarela
         {
+
             for (int i = 0; i < quantidade_de_objetos; i++)
             {
                 if (moedasAmarelas[i].activeSelf == false)
@@ -206,60 +198,11 @@ public class SpawObject : MonoBehaviour
             }
         }
 
-        if (tempMoeda != null)
+        if (tempMoeda != null && ligarRandMoedas == true)
         {
-            tempMoeda.transform.position = new Vector3(transform.position.x + randMoedaPositionX, randCanoPosition / 10, transform.position.z); //Define a posição onde as moedas serão instanciadas
+            tempMoeda.transform.position = new Vector3(posicaoX, posicaoY,transform.position.z); //Define a posição onde as moedas serão instanciadas
             tempMoeda.SetActive(true);
         }
 
     }
-
-    private void gerarMoedaAleatorias(float randPosition)
-    {
-        GameObject tempMoeda = null;
-
-        if (escolherMoedas == 1)//Moeda Amarela
-        {
-            for (int i = 0; i < quantidade_de_objetos; i++)
-            {
-                if (moedasAmarelas[i].activeSelf == false)
-                {
-                    tempMoeda = moedasAmarelas[i];
-                    break;
-                }
-            }
-        }
-
-        if (escolherMoedas == 2)//Moeda Azul
-        {
-            for (int i = 0; i < quantidade_de_objetos; i++)
-            {
-                if (moedasAzuis[i].activeSelf == false)
-                {
-                    tempMoeda = moedasAzuis[i];
-                    break;
-                }
-            }
-        }
-
-        if (escolherMoedas == 3)//Moeda Roxa
-        {
-            for (int i = 0; i < quantidade_de_objetos; i++)
-            {
-                if (moedasRoxas[i].activeSelf == false)
-                {
-                    tempMoeda = moedasRoxas[i];
-                    break;
-                }
-            }
-        }
-
-        if (tempMoeda != null)
-        {
-            tempMoeda.transform.position = new Vector3(transform.position.x + minimaDistânciaMoedasX, randPosition - distânciaMoedasY, transform.position.z); //Define a posição onde as moedas serão instanciadas
-            tempMoeda.SetActive(true);
-        }
-
-    }
-
 }

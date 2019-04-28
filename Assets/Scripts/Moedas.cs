@@ -13,10 +13,12 @@ public class Moedas : MonoBehaviour
     void Start()
     {
         IntanceMoedas = this;
+        
     }
 
     public void Update()
-    {  
+    {
+        velocidade = SpawObject.InstanceSpawObjetc.velocidadeMoedas;
         if (GameControl.InstanceGameControl.isGameOver)
         {
             GameControl.InstanceGameControl.Die();
@@ -33,11 +35,5 @@ public class Moedas : MonoBehaviour
             GameControl.InstanceGameControl.bonusFunction(); //Chamou o metodo de pomtuação
             gameObject.SetActive(false);
         }
-    }
-
-    //Encapsulamento de classe
-    public void setVelocidade(float velocidade)
-    {
-        this.velocidade = velocidade;
     }
 }

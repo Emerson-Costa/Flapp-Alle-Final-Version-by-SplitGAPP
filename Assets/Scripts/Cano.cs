@@ -26,19 +26,19 @@ public class Cano : MonoBehaviour
             if (SpawObject.InstanceSpawObjetc.escolherCano == 1) //Cano Azul
             {
                 transform.Translate(Vector2.right * SpawObject.InstanceSpawObjetc.velocidadeCanoAzul * Time.deltaTime);
-                Moedas.IntanceMoedas.setVelocidade(SpawObject.InstanceSpawObjetc.velocidadeCanoAzul);
+               
             }
 
             if (SpawObject.InstanceSpawObjetc.escolherCano == 2) //Cano Verde
             {
                 transform.Translate(Vector2.right * SpawObject.InstanceSpawObjetc.velocidadeCanoVerde * Time.deltaTime);
-                Moedas.IntanceMoedas.setVelocidade(SpawObject.InstanceSpawObjetc.velocidadeCanoVerde);
+                
             }
 
             if (SpawObject.InstanceSpawObjetc.escolherCano == 3) //Cano Roxo
             {
                 transform.Translate(Vector2.right * SpawObject.InstanceSpawObjetc.velocidadeCanoRoxo * Time.deltaTime);
-                Moedas.IntanceMoedas.setVelocidade(SpawObject.InstanceSpawObjetc.velocidadeCanoRoxo);
+               
             }
         }    
 
