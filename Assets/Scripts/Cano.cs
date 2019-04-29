@@ -53,10 +53,11 @@ public class Cano : MonoBehaviour
     }
 
     //encapsulamento
-    /*public void setVelocidadeCanoAzul(float velocidade)
+
+    public void setVelocidadeCanoAzul(float velocidade)
     {
         this.velocidadeCanoAzul = velocidade;
-    }*/
+    }
 
     public void setVelocidadeCanoVerde(float velocidade)
     {

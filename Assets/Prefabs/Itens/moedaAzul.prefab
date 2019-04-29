@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917970906760082509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0.79, z: 70}
+  m_LocalPosition: {x: -113.705124, y: 0.79, z: 70}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,3 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a5cd63157d9c3458eb2b71e1c73a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moedaAmarela: {fileID: 9036795371387500248, guid: b8cb068dee9f62a40a58e68c4a61ac0b,
+    type: 3}
+  moedaAzul: {fileID: 917970906760082504}
+  moedaRoxa: {fileID: 4589467833088424952, guid: fa3b3a0f2fa986144b47d413c5656555,
+    type: 3}

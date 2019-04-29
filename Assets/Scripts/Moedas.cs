@@ -6,7 +6,14 @@ public class Moedas : MonoBehaviour
 {
     public static Moedas IntanceMoedas;
 
-    private float velocidade;
+    public Transform moedaAmarela;
+    public Transform moedaAzul;
+    public Transform moedaRoxa;
+
+    private float velocidadeMoedaAmarela;
+    private float velocidadeMoedaAzul;
+    private float velocidadeMoedaRoxa;
+
     private float tempo;
 
 
@@ -18,13 +25,21 @@ public class Moedas : MonoBehaviour
 
     public void Update()
     {
-        velocidade = SpawObject.InstanceSpawObjetc.velocidadeMoedas;
+        velocidadeMoedaAmarela = SpawObject.InstanceSpawObjetc.velocidadeMoedaAmarela;
+        velocidadeMoedaAzul    = SpawObject.InstanceSpawObjetc.velocidadeMoedaAzul;
+        velocidadeMoedaRoxa    = SpawObject.InstanceSpawObjetc.velocidadeMoedaRoxa;
+
         if (GameControl.InstanceGameControl.isGameOver)
         {
             GameControl.InstanceGameControl.Die();
         }
         else{
-            transform.Translate(Vector2.right * velocidade * Time.deltaTime);
+
+            moedaAmarela.transform.Translate(Vector2.right * velocidadeMoedaAmarela  * Time.deltaTime);
+          
+            moedaAzul.transform.Translate(Vector2.right    * velocidadeMoedaAzul     * Time.deltaTime);
+           
+            moedaRoxa.transform.Translate(Vector2.right    * velocidadeMoedaRoxa     * Time.deltaTime);  
         }
     }
 

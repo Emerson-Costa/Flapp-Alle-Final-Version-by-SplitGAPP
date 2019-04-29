@@ -437,6 +437,11 @@ PrefabInstance:
       objectReference: {fileID: 968373734}
     - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
         type: 3}
+      propertyPath: obstaculos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
       propertyPath: quantidade_de_objetos
       value: 20
       objectReference: {fileID: 0}
@@ -499,12 +504,12 @@ PrefabInstance:
     - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
         type: 3}
       propertyPath: tempoSpaw
-      value: 1.4
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
         type: 3}
       propertyPath: tempoSpawCanos
-      value: 1.2
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
         type: 3}
@@ -594,12 +599,70 @@ PrefabInstance:
     - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
         type: 3}
       propertyPath: ligarRandCanos
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
         type: 3}
       propertyPath: velocidadeMoedas
-      value: -6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: velocidadeMoedaAzul
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: velocidadeMoedaRoxa
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: velocidadeMoedaAmarela
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: "ligarObst\xE1culos"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: obstaculos.Array.data[0]
+      value: 
+      objectReference: {fileID: 3648571549704821562, guid: 95b0e17cc33349e4bb2024a0aecd288f,
+        type: 3}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: obstaculos.Array.data[1]
+      value: 
+      objectReference: {fileID: 4326414995466554267, guid: 6d8d003d66b1fc64ea83e8f414257f7f,
+        type: 3}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: tamanhoDosObstaculos
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: obstaculos.Array.data[2]
+      value: 
+      objectReference: {fileID: 285519411447840704, guid: 1c0988442c2f41249a1548d203d146bd,
+        type: 3}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: ligarGeradorDeCanos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: "ligarGeradorDeObst\xE1culos"
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536880595423669992, guid: f66002673c83e9a408639f5a2ca57ff7,
+        type: 3}
+      propertyPath: ligarGeradorDeMoedas
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66002673c83e9a408639f5a2ca57ff7, type: 3}
@@ -963,7 +1026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042382072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 2.61, z: 100}
+  m_LocalPosition: {x: -0.02, y: 2.61, z: 80}
   m_LocalScale: {x: 0.817497, y: 0.83389926, z: 1}
   m_Children: []
   m_Father: {fileID: 1407625503}

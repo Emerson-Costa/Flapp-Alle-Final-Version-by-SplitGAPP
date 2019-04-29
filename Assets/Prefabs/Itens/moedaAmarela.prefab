@@ -129,3 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a5cd63157d9c3458eb2b71e1c73a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moedaAmarela: {fileID: 9036795371387500248}
+  moedaAzul: {fileID: 917970906760082504, guid: 9e92a4d19bc731e4eaa57e4c1fe28002,
+    type: 3}
+  moedaRoxa: {fileID: 4589467833088424952, guid: fa3b3a0f2fa986144b47d413c5656555,
+    type: 3}

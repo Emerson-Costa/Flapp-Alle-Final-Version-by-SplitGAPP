@@ -17,9 +17,12 @@ public class SpawObject : MonoBehaviour
     public float velocidadeCanoVerde;
     public float velocidadeCanoAzul;
     public float velocidadeCanoRoxo;
-    public float tempoSpawCanos;     //  Tempo para instanciar um cano  na cena
+    public float tempoSpaw;     //  Tempo para instanciar um cano  na cena
 
-    public float velocidadeMoedas;
+    public float velocidadeMoedaAmarela;
+    public float velocidadeMoedaAzul;
+    public float velocidadeMoedaRoxa;
+
     public float tempoSpawMoedas;   //   Tempo para instaciar uma moeda na cena
     public float distanciaMoedasX; //
     public float distanciaMoedasY;// 
@@ -28,8 +31,9 @@ public class SpawObject : MonoBehaviour
     private float RateSpawCanos;   
     private float RateSpawMoedas;
 
-    public bool ligarRandCanos;
-    public bool ligarRandMoedas;
+    public bool ligarGeradorDeCanos;
+    public bool ligarGeradorDeMoedas;
+    public bool ligarGeradorDeObstáculos;
 
     public GameObject prefabCanoVerde;  
     public GameObject prefabCanoAzul;   
@@ -37,8 +41,11 @@ public class SpawObject : MonoBehaviour
 
     public GameObject prefabMoedaAmarela; 
     public GameObject prefabMoedaAzul; 
-    public GameObject prefabMoedaRocha; 
+    public GameObject prefabMoedaRocha;
 
+    public int tamanhoDosObstaculos;
+
+    public  List<GameObject> obstaculos;
     private List<GameObject> canosVerdes    = new List<GameObject>();
     private List<GameObject> canosAzuis     = new List<GameObject>();
     private List<GameObject> canosRoxos     = new List<GameObject>();
@@ -50,61 +57,78 @@ public class SpawObject : MonoBehaviour
     void Start()
     {
         InstanceSpawObjetc = this;
-        for (int i=0;  i < quantidade_de_objetos ; i++) //guardando os objetos na lista, a quantidade de canos é igual a quantidade de moedas
+        if (ligarGeradorDeCanos == true)
         {
-            //Instanciando todos os canos
-            GameObject tempCano = Instantiate(prefabCanoAzul) as GameObject;
-            canosAzuis.Add(tempCano);
-            tempCano.SetActive(false);
+            for (int i = 0; i < quantidade_de_objetos; i++) //guardando os canos clones na lista
+            {
+                //Instanciando todos os clones dos canos
+                GameObject tempCano = Instantiate(prefabCanoAzul) as GameObject;
+                canosAzuis.Add(tempCano);
+                tempCano.SetActive(false);
 
-            tempCano = Instantiate(prefabCanoVerde) as GameObject;
-            canosVerdes.Add(tempCano);
-            tempCano.SetActive(false);
+                tempCano = Instantiate(prefabCanoVerde) as GameObject;
+                canosVerdes.Add(tempCano);
+                tempCano.SetActive(false);
 
-            tempCano = Instantiate(prefabCanoRoxo) as GameObject;
-            canosRoxos.Add(tempCano);
-            tempCano.SetActive(false);
+                tempCano = Instantiate(prefabCanoRoxo) as GameObject;
+                canosRoxos.Add(tempCano);
+                tempCano.SetActive(false);
 
-          
-            //Instanciando todas as moedas
-            GameObject tempMoeda = Instantiate(prefabMoedaAmarela) as GameObject;
-            moedasAmarelas.Add(tempMoeda);
-            tempMoeda.SetActive(false);
 
-            tempMoeda = Instantiate(prefabMoedaAzul) as GameObject;
-            moedasAzuis.Add(tempMoeda);
-            tempMoeda.SetActive(false);
+                //Instanciando todos os clones das moedas
+                GameObject tempMoeda = Instantiate(prefabMoedaAmarela) as GameObject;
+                moedasAmarelas.Add(tempMoeda);
+                tempMoeda.SetActive(false);
 
-            tempMoeda = Instantiate(prefabMoedaRocha) as GameObject;
-            moedasRoxas.Add(tempMoeda);
-            tempMoeda.SetActive(false);
-        }  
+                tempMoeda = Instantiate(prefabMoedaAzul) as GameObject;
+                moedasAzuis.Add(tempMoeda);
+                tempMoeda.SetActive(false);
+
+                tempMoeda = Instantiate(prefabMoedaRocha) as GameObject;
+                moedasRoxas.Add(tempMoeda);
+                tempMoeda.SetActive(false);
+            }
+        }
+        
+        //Guardando as intancias dos objetos dos obstáculos inseridos na lista
+        for (int i = 0; i < tamanhoDosObstaculos; i++)
+        {
+            GameObject obstaculo = Instantiate(obstaculos[i]) as GameObject;
+            obstaculos.Add(obstaculo);
+            obstaculo.SetActive(false);
+        }
+         
     }
 
     
     void Update()
     {
         Alle.InstanceAlle.setImunidadeTempo(tempoDanoHeroi); //tempo de dano do herói atualizado a cada FPS
-        fasesMundo01();
+        geradorCanos();
+        gerarObstaculos();
     }
 
-    private void fasesMundo01( ) //instancia os objetos na tala
+    private void geradorCanos( ) //instancia os objetos na tala
     {
-        RateSpawCanos += Time.deltaTime; //tempo para contagem para gerar os Objetos
-        if (GameControl.InstanceGameControl.isGameOver)
+        if (ligarGeradorDeCanos == true)
         {
-            GameControl.InstanceGameControl.Die();
-        }
-        else
-        {
-            float randCanoPosition = Random.Range(alturaMinimaCano, alturaMaximaCano); //Randonizando as posicoes aleatoria dos canos
+            RateSpawCanos += Time.deltaTime; //tempo para contagem para gerar os Objetos
+            if (GameControl.InstanceGameControl.isGameOver)
+            {
+                GameControl.InstanceGameControl.Die();
+            }
+            else
+            {
+                float randCanoPosition = Random.Range(alturaMinimaCano, alturaMaximaCano); //Randonizando as posicoes aleatoria dos canos
 
-            if (RateSpawCanos > tempoSpawCanos  && ligarRandCanos == true )
-            {  
-                gerarCanos(randCanoPosition);
-                RateSpawCanos = 0; //Zera o tempo para uma nova contagem
+                if (RateSpawCanos > tempoSpaw)
+                {
+                    gerarCanos(randCanoPosition);
+                    RateSpawCanos = 0; //Zera o tempo para uma nova contagem
+                }
             }
         }
+       
     }
 
     private void gerarCanos(float randPosition)
@@ -157,6 +181,33 @@ public class SpawObject : MonoBehaviour
 
     }
 
+    private void gerarObstaculos()
+    {
+        RateSpawCanos += Time.deltaTime;
+        if (ligarGeradorDeObstáculos == true)
+        {
+            if (RateSpawCanos > tempoSpaw)
+            {
+                GameObject obstaculo = null;
+                for (int i = 0  ; i < obstaculos.Capacity ; i++ )
+                {
+                    if (obstaculos[i].activeSelf == false)
+                    {
+                        obstaculo = obstaculos[i];
+                        break;
+                    }
+                }
+
+                if (obstaculo != null)
+                {
+                    obstaculo.transform.position = new Vector3(transform.position.x, transform.position.y, 70);
+                    obstaculo.SetActive(true);
+                }
+                RateSpawCanos = 0;
+            }
+        }
+    }
+
     private void gerarMoedas(float posicaoX, float posicaoY) 
     {
         GameObject tempMoeda = null;
@@ -198,7 +249,7 @@ public class SpawObject : MonoBehaviour
             }
         }
 
-        if (tempMoeda != null && ligarRandMoedas == true)
+        if (tempMoeda != null && ligarGeradorDeMoedas == true)
         {
             tempMoeda.transform.position = new Vector3(posicaoX, posicaoY,transform.position.z); //Define a posição onde as moedas serão instanciadas
             tempMoeda.SetActive(true);
